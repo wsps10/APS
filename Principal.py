@@ -62,8 +62,8 @@ def resultado():
                     minutos = json_site['elems'][1]['value']
                     dias = json_site['elems'][2]['value']
                     if potencia.isnumeric() and dias.isnumeric() and minutos.isnumeric():
-                        horas = int(minutos) / 60
-                        kw = int(potencia) / 1000
+                        horas = float(minutos) / 60
+                        kw = float(potencia) / 1000
                         kwh = kw * horas
 
                         resultado_parcial = kwh * 0.1355
