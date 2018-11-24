@@ -123,7 +123,7 @@ def valores():
                           "PWD=XXXXXXX;", "", "")
     sql = "SELECT * FROM  VHL83324.DADOS_SLIDERS WHERE OBJETO = ?"
     stmt = ibm_db.prepare(conn, sql)
-    ibm_db.bind_param(stmt, 1, objeto.replace(' ', ''))
+    ibm_db.bind_param(stmt, 1, objeto.replace(' ', '').replace('SELECT', ''))
     ibm_db.execute(stmt)
     dictionary = ibm_db.fetch_both(stmt)
     try:
