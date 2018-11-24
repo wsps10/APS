@@ -1,0 +1,34 @@
+/***** APPEARNCE *****/
+.spin-none::-webkit-inner-spin-button, 
+.spin-none::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+.fade-out {
+	opacity: 0;
+	transition: opacity .6s ease-in;
+}
+
+/***** FONTS *****/
+.verdana {
+	font-family: "Verdana", sans-serif;
+}
+.georgia {
+	font-size: 2rem;
+    font-family: "Georgia", serif;
+}
+
+/***** FORMAT *****/
+.round {
+	border-radius: 50%;
+}
+.rounded {
+	border-radius: 2rem;
+}
+.txt-decor-none {
+	text-decoration: none;
+}
+
+p {
+	word-wrap:break-word;
+}

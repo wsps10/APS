@@ -1,5 +1,6 @@
 ---
 applications:
- - name: APS2
-   random-route: true
-   memory: 64M
+ - name: APS
+   memory: 128M
+   host: pegada-carbono
+   

@@ -1,0 +1,12 @@
+.hidden {
+	opacity: 0;
+}
+.fade-in,
+form:hover .fade-in { 
+	opacity: 1;
+	transition: opacity .6s ease-in;
+}
+form:not(:hover) .fade-out {
+	opacity: 0;
+	transition: opacity .6s ease-in;
+}

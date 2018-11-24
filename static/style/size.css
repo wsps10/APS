@@ -1,0 +1,135 @@
+:root {
+	--main-size-none: 0rem;
+	--main-size-nano: 0.25rem;
+	--main-size-micro: 1rem;
+	--main-size-small: 4rem;
+	--main-size-medium: 8rem;
+	--main-size-big: 16rem;
+	--main-size-giant: 32rem;
+	--main-size-fill: 100%;
+	--main-size-half: 50%;
+}
+
+/***** SCALE *****/
+.scale {
+	transition: all .4s ease-in;
+}
+.scale:hover {
+	transform: scale(1.2);
+}
+
+.scale-font {
+	transition: all .6s ease-in;
+}
+.scale-font:hover {
+	font-weight: 500;
+	font-size: calc(var(--main-size-micro) * 1.2);
+}
+
+/***** DISTANCES *****/
+
+.mrg-none {
+	margin: var(--main-size-none);
+}
+.mrg-nano {
+	margin: var(--main-size-nano);
+}
+.mrg-micro {
+	margin: var(--main-size-micro);
+}
+.mrg-micro-l {
+	margin-left: var(--main-size-micro);
+}
+.mrg-small {
+	margin: var(--main-size-small);
+}
+
+.pdg-none {
+	padding: var(--main-size-none);
+}
+.pdg-micro {
+	padding: var(--main-size-micro);
+}
+.pdg-medium {
+	padding: var(--main-size-medium);
+}
+.pdg-sides-medium {
+	padding-left: var(--main-size-medium);
+	padding-right: var(--main-size-medium);
+}
+.pdg-highs-small {
+	padding-top: var(--main-size-small);
+	padding-bottom: var(--main-size-small);
+}
+
+/***** SIZES *****/
+
+.brd-none {
+	border: none;
+}
+.brd-none:focus {
+	outline: none;
+	border: none;
+}
+
+.fnt-nano {
+	font-size: var(--main-size-nano);
+}
+.fnt-micro {
+	font-size: var(--main-size-micro);
+}
+.fnt-double {
+	font-size: 2rem;
+}
+.fnt-small {
+	font-size: var(--main-size-small);
+}
+.fnt-medium {
+	font-size: var(--main-size-medium);
+}
+
+.h-fill {
+	height: var(--main-size-fill);
+}
+.h-micro {
+	height: var(--main-size-micro);
+}
+.h-small {
+	height: var(--main-size-small);
+}
+.h-half {
+	height: var(--main-size-half);
+}
+.h-tenth {
+	height: 10%;
+}
+.h-medium {
+	height: var(--main-size-medium);
+}
+.w-medium {
+	width: var(--main-size-medium);
+}
+.w-fill {
+	width: var(--main-size-fill);
+}
+.w-max-fill {
+	max-width: var(--main-size-fill);
+}
+.w-micro {
+	width: var(--main-size-micro);
+}
+.w-small {
+	width: var(--main-size-small);
+}
+.w-big {
+	width: var(--main-size-big);
+}
+.w-giant {
+	width: var(--main-size-giant);
+}
+.w-min {
+	width: min-content;
+}
+.w-max {
+	width: max-content;
+}

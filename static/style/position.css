@@ -1,0 +1,44 @@
+/***** POSITION *****/
+.pos-abs {
+	position: absolute;
+}
+.pos-fix {
+	position: fixed;
+}
+.bot {
+	bottom: 0;
+}
+
+/***** ALIGNMENT *****/
+.txt-center {
+	text-align: center;
+}
+
+/***** FLEX *****/
+.flx {
+	display: flex;
+}
+.flx-center {
+	justify-content: center;
+}
+.flx-middle {
+	align-items: center;
+}
+.flx-final {
+	align-items: flex-end;
+}
+.flx-spread {
+	justify-content: space-between;
+}
+.flx-end {
+	justify-content: flex-end;
+}
+.flx-reverse {
+	flex-direction: row-reverse;
+}
+.flx-row {
+	flex-direction: row;
+}
+.flx-col {
+	flex-direction: column;
+}

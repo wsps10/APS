@@ -1,0 +1,85 @@
+:root {
+	--main-color-white: hsl(232, 8%, 99%);
+	--main-color-red: hsl(0, 100%, 45%);
+	--main-color-darkred: hsl(0, 100%, 30%);
+	--main-color-yellow: hsl(50, 100%, 50%);
+	--main-color-lightblue: hsl(210, 100%, 50%);
+	--main-color-green: hsl(127, 63%, 49%);
+	--main-color-darkgreen: hsl(127, 63%, 34%);
+	--main-color-lightgrey: hsl(0, 0%, 50%);
+	--main-color-darkgrey: hsl(0, 0%, 31%);
+	--main-color-black: hsl(260, 10%, 6%);
+	--main-color-transparent: rgba(0, 0, 0, 0);
+	--main-color-orange: hsl(36, 100%, 50%);
+	--main-color-darkorange: hsl(36, 100%, 35%);
+}
+
+.bg-orange {
+	background-color: var(--main-color-orange);
+}
+.bg-orange__dark:active {
+	background-color: var(--main-color-darkorange);
+}
+.bg-white {
+	background-color: var(--main-color-white);
+}
+.bg-blue {
+	background-color: var(--main-color-lightblue);
+}
+.bg-green {
+	background-color: var(--main-color-green);
+}
+.bg-green__dark:active {
+	background-color: var(--main-color-darkgreen);
+}
+.bg-red {
+	background-color: var(--main-color-red);
+}
+.bg-red__dark:active {
+	background-color: var(--main-color-darkred);
+}
+.bg-transp {
+	background-color: var(--main-color-transparent);
+}
+.bg-lightgrey {
+	background-color: var(--main-color-lightgrey);
+}
+.bg-lightblue {
+	background-color: var(--main-color-lightblue);
+}
+.bg-white__hover:hover {
+	background-color: var(--main-color-white);
+}
+
+.txt-white {
+	color: var(--main-color-white);
+}
+.txt-blue {
+	color: var(--main-color-lightblue);
+}
+.txt-green__hover:hover,
+.txt-green__hover:active {
+	color: var(--main-color-green);
+}
+.txt-lightgrey {
+	color: var(--main-color-lightgrey);
+}
+.txt-darkgrey {
+	color: var(--main-color-darkgrey);
+}
+.txt-black {
+	color: var(--main-color-black);
+}
+.txt-green {
+	color: var(--main-color-green);
+}
+.txt-red {
+	color: var(--main-color-red);
+}
+.txt-red__hover:hover,
+.txt-red__hover:active {
+	color: var(--main-color-red);
+}
+.txt-transp {
+	color: var(--main-color-transparent);
+}

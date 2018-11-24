@@ -1,110 +1,62 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta veiculo="viewport" content="width=device-width, initial-scale=1">
-		<title>Pegada de Carbono</title>
+<head>
+	<title>Pegada de carbono</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
 
-		
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-		<link href="styles.css" rel="stylesheet">    
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="js/lib/jquery.i18n/jquery.i18n.js"></script>
-		<script src="js/lib/jquery.i18n/jquery.i18n.messagestore.js"></script>
-		<script src="js/lib/jquery.i18n/jquery.i18n.fallbacks.js"></script>
-		<script src="js/lib/jquery.i18n/jquery.i18n.language.js"></script>
-		<script src="js/lib/jquery.i18n/jquery.i18n.parser.js"></script>
-		<script src="js/lib/jquery.i18n/jquery.i18n.emitter.js"></script>
-		<script src="js/lib/jquery.i18n/jquery.i18n.emitter.bidi.js"></script>
-		<script src="antixss.js" type="text/javascript"></script>
-		
-		<script>
-			$( document ).ready(function() {
-				$.i18n().load( {
-					en: {
-						"titulo": "APS",
-						"veiculo": "veiculo",
-						"veiculo": "Qual veículo você utiliza?",
-						"distancia": "Qual a distância que você percorre?",
-						"resultado": "Resultado: $1",                    
-					}
-				} );
-				$('body').i18n();
-				$('#veiculo_usuario').attr("placeholder", $.i18n('veículo') );
-				$('#distancia_usuario').attr("placeholder", $.i18n('distância (Km)') );
-				$('#botao_enviar').attr("placeholder", $.i18n('Enviar') );
-			});
-			</script>
-	</head>
-	<body>
-		<div class="container" id="container">
-			<h1 data-i18n="titulo"></h1> 
-			<div id="veiculoInput" class="input-group-lg center-block helloInput">
-				<p class="lead" data-i18n="veiculo"></p>
-				<input id="veiculo_usuario" type="text" class="form-control" aria-describedby="sizing-addon1" value="" />
-			</div>
-			<div id="distanciaInput" class="input-group-lg center-block helloInput">
-				<p class="lead" data-i18n="distancia"></p>
-				<input id="distancia_usuario" type="number" class="form-control" aria-describedby="sizing-addon1" value="" />
-			</div>
-				<input id="botao_enviar" type="submit" class="form-control" aria-describedby="sizing-addon1" value="Enviar">
-				<p id="resultado" class="lead text-center"></p>		    
-				<p id="databaseveiculos" class="lead text-center"></p>
-			</div>
-			<footer class="footer">
-			<div class="container">
-				<span><a href="https://console.bluemix.net/docs/tutorials/index.html" target="_blank">Referencia 1</a></span>
-			</div>
-		</footer>
-	</body>
-</html>
+	<link rel="stylesheet" href="static/fonts/fontawesome-free-5.5.0-web/css/all.css">
+	<link rel="stylesheet" type="text/css" href="static/fonts/flaticon.css"> 
+	<link rel="stylesheet" type="text/css" href="static/style/appearance.css">
+	<link rel="stylesheet" type="text/css" href="static/style/position.css">
+	<link rel="stylesheet" type="text/css" href="static/style/color.css">
+	<link rel="stylesheet" type="text/css" href="static/style/size.css">
 
-
-<script>
-	const button = document.getElementById("botao_enviar");
-	button.addEventListener("click", function(e){
-		const ids = ["veiculo_usuario", "distancia_usuario"];
-		const elems = ids.map(id => document.getElementById(id));
-		const emptyElems = elems.filter(elem => elem.value === "");
-		
-		if (emptyElems.length > 0){
-			emptyElems.forEach(elem => elem.classList.add("error"));
-		} else{
+	<script src="static/components/rangeSlider/RangeSlider.js"></script>
+	<script src="static/components/headerButton/HeaderButton.js"></script>
+	<script src="static/components/sliderForm/SliderForm.js"></script>
+</head>
+<body class="pos-abs h-fill w-fill mrg-none pdg-none bg-white">
+	<main class="h-fill w-fill bg-lightblue">
+		<section class="h-half flx flx-col flx-center flx-middle">
+			<section class="flx flx-center flx-middle">			
+				<button id="btnClear" title="Limpar" class="brd-none round bg-red txt-white fnt-double mrg-micro-l w-small h-small scale bg-red__dark">
+					<i class="far fa-trash-alt"></i>
+				</button>
+				<output title="result" class="w-giant h-small rouded brd-none rounded bg-white mrg-micro verdana txt-black flx flx-center flx-middle txt-center">
+			</section>
 			
-		}
-	});
-	
-	const ids = ["veiculo_usuario", "distancia_usuario"];
-	const elems = ids.map(id => document.getElementById(id));
-	elems.forEach(elem => elem.addEventListener("input", e => elem.classList.remove("error")));
-	
-               //Submit data when enter key is pressed
-        $('#botao_enviar').click(function (e) {
-               var veiculo = $('#veiculo_usuario').val();
-			   var distancia = $('#distancia_usuario').val();
-            if (veiculo.length > 0 && distancia.length > 0) { //catch Enter key
-              //POST request to API to create a new visitor entry in the database
-                $.ajax({
-						 method: "POST",
-						 url: "./resultado",
-						 contentType: "application/json",
-						 data: JSON.stringify({veiculo: veiculo,distancia: distancia})
-					   })
-                .done(function(data) {
-                    if(data && data.veiculo){                        
-                            $('#resultado').html($.i18n('resultado', AntiXSS.sanitizeInput(data.veiculo)));      
-                    }
-                    else {
-                        $('#resultado').html(AntiXSS.sanitizeInput(data));
-                    }
-                    $('#veiculoInput').hide();
-				    $('#distanciaInput').hide();
-				    $('#botao_enviar').hide();
-                    getveiculos();
-                });
-            }
-        });
-
-    </script>
+			</output>
+			<section class="flx flx-center">
+				<button id="btnWater" title="Adicione seu consumo de água" class="brd-none round bg-green txt-white fnt-double mrg-micro-l w-small h-small scale bg-green__dark">
+					<i class="fas fa-tint"></i>
+				</button>
+				<button id="btnEletronic" title="Adicione um eletrônico" class="brd-none round bg-green txt-white fnt-double mrg-micro-l w-small h-small scale bg-green__dark">
+					<i class="fas fa-blender"></i>
+				</button>
+				<button id="btnVehicle" title="Adicione um veículo" class="brd-none round bg-green txt-white fnt-double mrg-micro-l w-small h-small scale bg-green__dark">
+					<i class="fas fa-bus"></i></button>
+				<button id="btnCalculate" title="Calcule!" class="brd-none round bg-orange txt-white fnt-double mrg-micro-l w-small h-small scale bg-orange__dark">
+					<i class="fas fa-calculator"></i>
+				</button>
+			</section>
+		</section>
+		<section id="carousel" class="h-half flx flx-center"></section>
+	</main>
+	<footer class="h-tenth w-fill bg-white flx flx-spread flx-middle">
+		<section id="institutional">
+			<a href="static/screens/como.html" class="verdana txt-green scale-font mrg-nano txt-decor-none">como</a>
+			<a href="static/screens/o-que.html" class="verdana txt-green scale-font mrg-nano txt-decor-none">o que</a>
+			<a href="static/screens/por-que.html" class="verdana txt-green scale-font mrg-nano txt-decor-none">por que</a>
+		</section>
+		<section id="references">
+			<a target="_blank" rel="noopener noreferrer" href="http://www.inmetro.gov.br/" class="verdana txt-green scale-font mrg-nano txt-decor-none">Inmetro</a>
+			<a target="_blank" rel="noopener noreferrer" href="http://www.natureba.com.br/" class="verdana txt-green scale-font mrg-nano txt-decor-none">Natureba</a>
+			<a target="_blank" rel="noopener noreferrer" href="http://www.ipea.gov.br/portal/" class="verdana txt-green scale-font mrg-nano txt-decor-none">IPEA</a>
+			<a target="_blank" rel="noopener noreferrer" href="http://agenciabrasil.ebc.com.br/geral/noticia/2018-03/brasileiro-consome-significativo-volume-de-agua-que-nao-sai-das-torneiras" class="verdana txt-green scale-font mrg-nano txt-decor-none">Agencia Brasil</a>
+		</section>
+	</footer>
+	<script src="static/objs/dictionary.js"></script>
+	<script src="static/utils/button.js"></script>
+</body>
+</html>

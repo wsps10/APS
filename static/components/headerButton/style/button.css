@@ -1,0 +1,9 @@
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, 
+[class*=" flaticon-"]:after {
+	font-size: 1rem;
+	margin: 0;
+}
+
+.btn-fixed {
+	color: var(--main-color-green);
+}
