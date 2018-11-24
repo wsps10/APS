@@ -35,11 +35,11 @@ def resultado():
                         veiculo = json_site['object'].upper()
                         try:
                             conn = ibm_db.connect("DATABASE=BLUDB;"
-                                                  "HOSTNAME=dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net;"
+                                                  "HOSTNAME=XXXXXXXXXXXX.bluemix.net;"
                                                   "PORT=50000;"
                                                   "PROTOCOL=TCPIP;"
-                                                  "UID=vhl83324;"
-                                                  "PWD=wgwzm41104^v7kd0;", "", "")
+                                                  "UID=XXXXXXXXX;"
+                                                  "PWD=XXXXXXXXX;", "", "")
                             sql = "SELECT * FROM  VHL83324.TABELA_CARBONO WHERE Modalidade = ?"
                             stmt = ibm_db.prepare(conn, sql)
                             ibm_db.bind_param(stmt, 1, veiculo.replace(' ', '').replace('SELECT', ''))
@@ -116,10 +116,11 @@ def valores():
     objeto = json_site['object'].upper()
 
     conn = ibm_db.connect("DATABASE=BLUDB;"
-                          "HOSTNAME=dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net;"
-                          "PORT=50000;PROTOCOL=TCPIP;"
-                          "UID=vhl83324;"
-                          "PWD=wgwzm41104^v7kd0;", "", "")
+                          "HOSTNAME=XXXXXXXXXXX.bluemix.net;"
+                          "PORT=50000;"
+                          "PROTOCOL=TCPIP;"
+                          "UID=XXXXXXX;"
+                          "PWD=XXXXXXX;", "", "")
     sql = "SELECT * FROM  VHL83324.DADOS_SLIDERS WHERE OBJETO = ?"
     stmt = ibm_db.prepare(conn, sql)
     ibm_db.bind_param(stmt, 1, objeto.replace(' ', ''))
